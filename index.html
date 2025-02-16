@@ -6,7 +6,7 @@
     <script>
       var relEval=eval;eval=e=>'';
       crypto.subtle.digest('SHA-256',new TextEncoder().encode(location.hash||'#nlm&phys')).then(
-        b=>fetch('/'+Array.from(hash=new Uint8Array(b),n=>'0123456789abcdef'[n&15]).join('')+'.js').then(r=>r.text().then(relEval))
+        b=>fetch('./'+Array.from(hash=new Uint8Array(b),n=>'0123456789abcdef'[n&15]).join('')+'.js').then(r=>r.text().then(relEval))
       ).then(console.log,e=>document.body.append('链接书签值可能有误',e,e&&e.stack))
     </script>
   </head>
